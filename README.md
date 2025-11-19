@@ -34,21 +34,12 @@ A detailed check of column data types ensures correct handling of numerical and 
 
 The notebook performs:
 
-Analysis has been done on the categorical variables to determine Risk Ratio and Mutual Information score. The variables that really affects the Loan Paid Back variable has been kept while rest like gender, marital status, loan purpose has been dropped
+Analysis has been done on the categorical variables to determine Risk Ratio and Mutual Information score.
 
 Also some categorical variables exhibited a ordinal relationship and hence has been encoded to numeric like education level and grade_subgrade.
 
-4️⃣ Statistical Summary
+4️⃣ Analysis of numeric Variables:- Numeric variables have been assigned using Correlation Heatmap.
 
-Summary statistics help identify:
-
-Data distribution
-
-Outliers
-
-Feature behavior
-
-Potential transformation requirements
 
 5️⃣ Dropping Non-Predictive Columns
 
@@ -68,19 +59,20 @@ Relationship between variables and target
 
 7️⃣ Feature Engineering
 
+The variables that really affects the Loan Paid Back variable like Employment Status has been kept while rest like gender, marital status, loan purpose has been dropped
 Based on the EDA, categorical variables may be encoded and numeric variables normalized/cleaned.
 
 8️⃣ Model Training
 
-Machine learning models may include:
+Machine learning models that were trained are
 
 Logistic Regression
+
+Decision Trees
 
 Random Forest
 
 XGBoost
-
-Other classifiers
 
 Hyperparameters are tuned to improve model performance.
 
@@ -90,11 +82,7 @@ Common evaluation metrics:
 
 Accuracy
 
-Precision, Recall, F1
-
 ROC–AUC
-
-Confusion Matrix
 
 📊 Technologies Used
 
@@ -106,19 +94,12 @@ Matplotlib / Seaborn
 
 Scikit-learn
 
-XGBoost (if used)
+XGBoost
 
 Jupyter Notebook
 
-🚀 How to Run the Notebook
-1. Install Dependencies
-pip install -r requirements.txt
+🚀 How to Run the Project
 
-
-(If you don’t have requirements.txt, I can generate it based on the notebook.)
-
-2. Open the Notebook
-jupyter notebook LoanPayback_MidTerm_with_EDA.ipynb
 
 📁 Repository Structure
 .
