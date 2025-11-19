@@ -2,6 +2,7 @@
 
 This repository contains the Loan Payback Prediction project implemented in the Jupyter Notebook LoanPayback_MidTerm_with_EDA.ipynb.
 The notebook includes complete data loading, preprocessing, exploratory data analysis (EDA), feature engineering, model training, evaluation, and insights.
+This notebook trains the datsset on some of the ML models we learnt and then chooses the Final Model which gives best ROC_AUC_SCORE
 
 📂 Project Overview
 
@@ -29,15 +30,13 @@ The notebook starts by loading the dataset and visually inspecting the first few
 
 A detailed check of column data types ensures correct handling of numerical and categorical variables.
 
-3️⃣ Missing Values Analysis
+3️⃣ Analysis of categorical variables
 
 The notebook performs:
 
-A summary of missing values
+Analysis has been done on the categorical variables to determine Risk Ratio and Mutual Information score. The variables that really affects the Loan Paid Back variable has been kept while rest like gender, marital status, loan purpose has been dropped
 
-Visual and tabular missing-value assessments
-
-Decision-making on how to handle them
+Also some categorical variables exhibited a ordinal relationship and hence has been encoded to numeric like education level and grade_subgrade.
 
 4️⃣ Statistical Summary
 
