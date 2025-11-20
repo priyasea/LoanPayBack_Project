@@ -1,25 +1,44 @@
 📘 Loan Payback Prediction — Midterm Project
-
+This project predicts whether a loan applicant will successfully pay back a loan based on demographic and financial features.
 This repository contains the Loan Payback Prediction project implemented in the Jupyter Notebook LoanPayback_MidTerm_with_EDA.ipynb.
 The notebook includes complete data loading, preprocessing, exploratory data analysis (EDA), feature engineering, model training, evaluation, and insights.
 This notebook trains the datsset on some of the ML models we learnt and then chooses the Final Model which gives best ROC_AUC_SCORE
 
-📂 Project Overview
+📂 Project Structure
+LoanPayback_Project/
+│
+├── README.md
+├── notebook.ipynb              # EDA + model development
+│
+├── train.py                    # Training pipeline
+├── predict.py                  # FastAPI prediction service
+│
+├── model.bin                   # Trained model
+├── dv.bin                      # DictVectorizer
+├── encoders.bin                # Label/Ordinal encoders
+│
+├── train.csv                   # Dataset (53 MB)
+│
+├── pyproject.toml              # Project dependencies
+├── uv.lock                     # Locked dependencies
+│
+├── Dockerfile                  # Container for prediction service
+└── deployment_screenshot.png   # Optional (deployment proof)
 
+📂 Project Overview
+Financial institutions want to estimate whether a borrower is likely to repay a loan.
+Using customer and loan features, this project builds a model to classify loan repayment behavior.
+The workflow includes:
 The goal of this project is to analyze a loan dataset and predict whether a loan will be paid back using machine learning techniques.
 This includes:
 
-Understanding the dataset
+Data cleaning and preprocessing
+Exploratory Data Analysis (EDA)
+Feature engineering and selection
+Model selection and hyperparameter tuning
+Training final model
 
-Cleaning and preprocessing
-
-Performing exploratory data analysis (EDA)
-
-Building predictive models
-
-Evaluating model performance
-
-Drawing insights from the results
+Deploying the model using FastAPI and Docker
 
 🧠 Key Steps in the Notebook
 1️⃣ Dataset Preview
