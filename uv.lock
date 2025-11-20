@@ -151,7 +151,7 @@ dev = [
 requires-dist = [
     { name = "fastapi", specifier = ">=0.121.2" },
     { name = "pandas", specifier = ">=2.3.3" },
-    { name = "scikit-learn", specifier = ">=1.7.2" },
+    { name = "scikit-learn", specifier = ">=1.6.1" },
     { name = "uvicorn", specifier = ">=0.38.0" },
     { name = "xgboost", specifier = ">=3.1.1" },
 ]

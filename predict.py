@@ -57,7 +57,7 @@ class PredictResponse(BaseModel):
     loan_pay_back_probability: float
     loan_pay_back: bool
 
-app = FastAPI(title="customer-churn-prediction")
+app = FastAPI(title="Loan Pay Back Prediction")
 
 def preprocess(features):
 
@@ -119,15 +119,16 @@ def predict(customer: Customer) -> PredictResponse:
 # -------------------------------------------------------
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=9696)
-    #sample = {
-     #   "loan_amount": 15000,
-     #   "interest_rate": 12.5,
-     #   "credit_score": 689,
-     #   "annual_income": 82000,
-     #   "debt_to_income_ratio": 17.3,
-     #   "employment_status": "student",
-     #   "education_level": "bachelors",
-      #  "grade_subgrade": "b3"
+    # sample = {
+	#"employment_status": "employed",
+    #    "education_level": "bachelors",
+    #    "grade_subgrade": "b3",
+	#"credit_score": 689,
+	# "annual_income": 82000,
+    #    "debt_to_income_ratio": 17.3,
+    #    "loan_amount": 15000,
+    #    "interest_rate": 12.5
+ 
     #}
 
     #prediction = predict_single(sample)
