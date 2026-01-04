@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Payback Prediction</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 8px 12px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Loan Payback Prediction</h2>
+
+<form id="predict-form">
+    <label>Employment Status:
+        <select id="employment_status">
+            <option value="employed">Employed</option>
+            <option value="self-employed">Self-employed</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="student">Student</option>
+            <option value="retired">Retired</option>
+        </select>
+    </label>
+
+    <label>Education Level:
+        <select id="education_level">
+            <option value="high_school">High School</option>
+            <option value="bachelors">Bachelors</option>
+            <option value="masters">Masters</option>
+            <option value="phd">PhD</option>
+            <option value="other">Other</option>
+        </select>
+    </label>
+
+    <label>Grade Subgrade:
+        <input type="text" id="grade_subgrade" value="b2">
+    </label>
+
+    <label>Loan Purpose:
+        <select id="loan_purpose">
+            <option value="car">Car</option>
+            <option value="home">Home</option>
+            <option value="education">Education</option>
+            <option value="business">Business</option>
+            <option value="medical">Medical</option>
+            <option value="vacation">Vacation</option>
+            <option value="other">Other</option>
+            <option value="debt_consolidation">Debt Consolidation</option>
+        </select>
+    </label>
+
+    <label>Credit Score:
+        <input type="number" id="credit_score" value="720">
+    </label>
+
+    <label>Annual Income:
+        <input type="number" id="annual_income" value="850000">
+    </label>
+
+    <label>Debt-to-Income Ratio:
+        <input type="number" step="0.01" id="debt_to_income_ratio" value="0.28">
+    </label>
+
+    <label>Loan Amount:
+        <input type="number" id="loan_amount" value="300000">
+    </label>
+
+    <label>Interest Rate:
+        <input type="number" step="0.1" id="interest_rate" value="11.5">
+    </label>
+
+    <button type="submit">Predict</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+document.getElementById("predict-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const payload = {
+        employment_status: document.getElementById("employment_status").value,
+        education_level: document.getElementById("education_level").value,
+        grade_subgrade: document.getElementById("grade_subgrade").value,
+        loan_purpose: document.getElementById("loan_purpose").value,
+        credit_score: Number(document.getElementById("credit_score").value),
+        annual_income: Number(document.getElementById("annual_income").value),
+        debt_to_income_ratio: Number(document.getElementById("debt_to_income_ratio").value),
+        loan_amount: Number(document.getElementById("loan_amount").value),
+        interest_rate: Number(document.getElementById("interest_rate").value)
+    };
+    
+    console.log("Payload sent to API:", payload);
+
+    const response = await fetch("/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    document.getElementById("result").innerText =
+        `Probability: ${result.loan_paid_back_probability}
+         | Loan Paid Back: ${result.loan_paid_back}`;
+});
+</script>
+
+</body>
+</html>

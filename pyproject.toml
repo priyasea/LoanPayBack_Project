@@ -1,15 +1,21 @@
 [project]
 name = "loanpayback"
 version = "0.1.0"
-description = "Add your description here"
+description = "Loan Payback Prediction project"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
-    "fastapi>=0.121.2",
+    "fastapi>=0.128.0",
     "pandas>=2.3.3",
-    "scikit-learn>=1.6.1",
-    "uvicorn>=0.38.0",
-    "xgboost>=3.1.1",
+    "scikit-learn>=1.8.0",
+    "uvicorn>=0.40.0",
+    "xgboost>=3.1.2",
+    "pydantic>=2.12.5",
+    "pydantic_core>=2.41.5",
+    "numpy>=2.4.0",
+    "pandas>=2.3.3",
+    "scipy==1.16.3",
+    "notebook>=7.5.1",
 ]
 
 [dependency-groups]
