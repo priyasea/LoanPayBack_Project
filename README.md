@@ -149,7 +149,7 @@ The target variable is quite imbalanced:
 
 ![Correlation Matrix of Numeric Features](images/correlation_matrix.png)
 
-**Important correlations with `is_fraud`:**
+**Important correlations with `loan_paid_back`:**
 - `debt_to_income_ratio` → 0.335758
 - `credit_score` → 0.234319
 - `interest_rate` → -0.130789
@@ -205,7 +205,7 @@ The dataset was split into:
 * 20% Validation
 * 20% Testing
 
-Multiple models were trained using the training set and evaluated against the validation set. Hyperparameter tuning and threshold optimization were performed to maximize predictive performance, especially focusing on F1-score and Recall, which are critical for fraud detection.
+Multiple models were trained using the training set and evaluated against the validation set. Hyperparameter tuning and threshold optimization were performed to maximize predictive performance, especially focusing on F1-score and ROC-AUC score for Loan Payback Prediction
 
 ### Models Evaluated
 
@@ -474,7 +474,7 @@ The Loan Payback Prediction API is deployed on Render using FastAPI and Docker, 
 
 #### 1. Push complete project to GitHub
 [github repo link]
-(https://github.com/codevalhalla/ml-ecommerce-fraud-detection)
+(https://github.com/priyasea/LoanPayBack_Project)
 
 
 #### 2. On Render Dashboard → “New Web Service”
@@ -484,7 +484,7 @@ The Loan Payback Prediction API is deployed on Render using FastAPI and Docker, 
 | Setting | Value |
 |---------|-------|
 | Environment |	Docker |
-| Repository | `codevalhalla/ml-ecommerce-fraud-detection` |
+| Repository | `priyasea/LoanPayBack_Project` |
 | Branch | main |
 | Root Directory | `(leave empty)` |
 | Environment Variables | `PORT=8000` |
