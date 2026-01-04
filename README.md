@@ -470,6 +470,13 @@ Once started, the API will be available at:
 
 The Loan Payback Prediction API is deployed on Render using FastAPI and Docker, enabling real-time loan repayment inference through RESTful endpoints.
 
+**Live API URL**:
+[Render API URL ]
+(https://loanpayback-project.onrender.com/docs)
+
+**(Interactive Swagger UI for API testing)**
+
+
 ### Deployment Steps (Docker + Render)
 
 #### 1. Push complete project to GitHub
@@ -503,8 +510,91 @@ Render automatically:
 CMD ["uvicorn", "src.predict:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 ---
+##  Proof of Successful Deployment
+
+### Render Deployment Configuration
+![Deployment video Predict api](images/Cloud_Deployment/LoanPredictionAPI_Render.mp4)
+![Deployment video HTML UI](images/Cloud_Deployment/LoanPredictionHTML_Render.mp4)             
+![Deployment Pic](images/Cloud_Deployment/LoanPrediction_mainRender.png)
 
 
-```python
+### API Testing Examples
+
+#### 1. Single Transaction (POST /predict)
+
+##### Request
+
+![API request](images/Cloud_Deployment/loanpredict_request.png)
+
+```json
+
+{
+  "employment_status": "employed",
+  "education_level": "bachelors",
+  "grade_subgrade": "a1",
+  "loan_purpose": "business",
+  "credit_score": 650,
+  "annual_income": 120000,
+  "debt_to_income_ratio": 0.4,
+  "loan_amount": 40000,
+  "interest_rate": 13
+}
 
 ```
+
+##### Response:
+
+![API request](images/Cloud_Deployment/loanpredict_response.png)
+
+```json
+{
+  "loan_paid_back_probability": 0.3745,
+  "loan_paid_back": "Loan will not be paid back"
+}
+```
+
+#### 2. HTML Transactions (GET /ui)
+
+##### HTML Request
+
+![HTML request](images/cloud_deployment/loanpredicthtml_request.png)
+
+```json
+
+  {
+  "employment_status": "employed",
+  "education_level": "high school",
+  "grade_subgrade": "b2",
+  "loan_purpose": "car",
+  "credit_score": 720,
+  "annual_income": 850000,
+  "debt_to_income_ratio": 0.28,
+  "loan_amount": 30000,
+  "interest_rate": 11.5
+}
+
+```
+
+##### HTML Response
+
+![HTML Respone image](images/Cloud_Deployment/loanpredicthtml_response.png)
+
+```json
+
+  {
+    "loan_paid_back_probability": 0.7818,
+    "loan_paid_back": "Loan shall be paid back"
+  }
+
+```
+## Conclusion
+
+This project successfully implements an end-to-end Loan Pay back Prediction system for bank loan applications using machine learning. After performing detailed exploratory data analysis, feature engineering, and model comparison, XGBoost was selected as the final model due to its high performance:
+
+ROC-AUC: 0.921519 
+
+F1-Score: 0.943001
+
+Decision Threshold: 0.45
+
+The final solution was packaged with FastAPI, containerized using Docker, and deployed on Render, enabling real-time prediction of single or multiple transactions. The system is ready for integration into production environments to helps Bankers make decision for loan approval and also prevent defaulting of loans
