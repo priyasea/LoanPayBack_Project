@@ -557,7 +557,7 @@ CMD ["uvicorn", "src.predict:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ##### HTML Request
 
-![HTML request](images/cloud_deployment/loanpredicthtml_request.png)
+![HTML request](images/Cloud_Deployment/loanpredicthtml_request.png)
 
 ```json
 
